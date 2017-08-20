@@ -20,6 +20,7 @@
 namespace NVelocity.Runtime.Resource.Util
 {
     using Loader;
+    using System.Collections.Generic;
 
     /// <summary> Default implementation of StringResourceRepository.
     /// Uses a HashMap for storage
@@ -63,7 +64,7 @@ namespace NVelocity.Runtime.Resource.Util
         }
         /// <summary> mem store</summary>
       
-        protected internal System.Collections.IDictionary resources = System.Collections.Hashtable.Synchronized(new System.Collections.Hashtable());
+        protected internal System.Collections.IDictionary resources = new Dictionary<object, object>();
 
         /// <summary> Current Repository encoding.</summary>
         private string encoding;

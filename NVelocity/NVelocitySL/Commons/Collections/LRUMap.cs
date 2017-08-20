@@ -14,18 +14,19 @@
 
 namespace Commons.Collections
 {
-	using System;
-	using System.Collections;
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
 
-	/// <summary>
-	/// A keyed list with a fixed maximum size which removes
-	/// the least recently used entry if an entry is added when full.
-	/// </summary>
-	[Serializable]
-	public class LRUMap : ICollection, IDictionary, IEnumerable
+    /// <summary>
+    /// A keyed list with a fixed maximum size which removes
+    /// the least recently used entry if an entry is added when full.
+    /// </summary>
+    //[Serializable]
+    public class LRUMap : ICollection, IDictionary, IEnumerable
 	{
-		private Hashtable objectTable = new Hashtable();
-		private ArrayList objectList = new ArrayList();
+		private Dictionary<object, object> objectTable = new Dictionary<object, object>();
+		private List<object> objectList = new List<object>();
 
 		/// <summary>
 		/// Default maximum size 
@@ -35,7 +36,8 @@ namespace Commons.Collections
 		/// <summary>
 		/// Maximum size 
 		/// </summary>
-		[NonSerialized] private int maxSize;
+		//[NonSerialized]
+        private int maxSize;
 
 		public LRUMap() : this(DEFAULT_MAX_SIZE)
 		{
@@ -65,12 +67,17 @@ namespace Commons.Collections
 
 		public virtual bool Contains(object key)
 		{
-			return objectTable.Contains(key);
+			return objectTable.ContainsKey(key);
 		}
 
 		public virtual void CopyTo(Array array, int idx)
 		{
-			objectTable.CopyTo(array, idx);
+            //objectTable.CopyTo(array, idx);
+            var it = objectTable.GetEnumerator();
+            while(it.MoveNext())
+            {
+                array.SetValue(it.Current, idx++);
+            }
 		}
 
 		public virtual void Remove(object key)
@@ -134,11 +141,11 @@ namespace Commons.Collections
 			get
 			{
 				MoveToMRU(key);
-				return objectTable[key];
+				return objectTable.ContainsKey(key) ? objectTable[key] : null;
 			}
 			set
 			{
-				if (objectTable.Contains(key))
+				if (objectTable.ContainsKey(key))
 				{
 					Remove(key);
 				}
@@ -150,7 +157,7 @@ namespace Commons.Collections
 		{
 			get
 			{
-				ArrayList retList = new ArrayList();
+				List<object> retList = new List<object>();
 				for(int i = 0; i < objectList.Count; i++)
 				{
 					retList.Add(((DictionaryEntry) objectList[i]).Key);
@@ -163,7 +170,7 @@ namespace Commons.Collections
 		{
 			get
 			{
-				ArrayList retList = new ArrayList();
+				List<object> retList = new List<object>();
 				for(int i = 0; i < objectList.Count; i++)
 				{
 					retList.Add(((DictionaryEntry) objectList[i]).Value);
@@ -232,7 +239,7 @@ namespace Commons.Collections
 		}
 
 		// Synchronized wrapper for LRUMap
-		[Serializable()]
+		//[Serializable()]
 		private class SyncLRUMap : LRUMap, IDictionary, IEnumerable
 		{
 			protected LRUMap _table;
@@ -242,15 +249,15 @@ namespace Commons.Collections
 				_table = table;
 			}
 
-//	    internal SyncLRUMap(SerializationInfo Info, StreamingContext context) : base (Info, context) {
-//		_table = (LRUMap)Info.GetValue("ParentTable", typeof(LRUMap));
-//		if (_table==null) {
-//		    throw new SerializationException(Environment.GetResourceString("Serialization_InsufficientState"));
-//		}
-//	    }
+            //	    internal SyncLRUMap(SerializationInfo Info, StreamingContext context) : base (Info, context) {
+            //		_table = (LRUMap)Info.GetValue("ParentTable", typeof(LRUMap));
+            //		if (_table==null) {
+            //		    throw new SerializationException(Environment.GetResourceString("Serialization_InsufficientState"));
+            //		}
+            //	    }
 
 
-			/*================================GetObjectData=================================
+            /*================================GetObjectData=================================
 	     **Action: Return a serialization Info containing a reference to _table.  We need
 	     **        to implement this because our parent HT does and we don't want to actually
 	     **        serialize all of it's values (just a reference to the table, which will then
@@ -260,14 +267,14 @@ namespace Commons.Collections
 	     **           context -- the StreamingContext for the current serialization (ignored)
 	     **Exceptions: ArgumentNullException if Info is null.
 	     ==============================================================================*/
-//	    public override void GetObjectData(SerializationInfo Info, StreamingContext context) {
-//		if (Info==null) {
-//		    throw new ArgumentNullException("Info");
-//		}
-//		Info.AddValue("ParentTable", _table, typeof(Hashtable));
-//	    }
+            //	    public override void GetObjectData(SerializationInfo Info, StreamingContext context) {
+            //		if (Info==null) {
+            //		    throw new ArgumentNullException("Info");
+            //		}
+            //		Info.AddValue("ParentTable", _table, typeof(Hashtable));
+            //	    }
 
-			public override int Count
+            public override int Count
 			{
 				get { return _table.Count; }
 			}

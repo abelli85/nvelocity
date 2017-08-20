@@ -33,7 +33,7 @@ namespace NVelocity.Exception
     /// </version>
     /// <since> 1.5
     /// </since>
-    [Serializable]
+    //[Serializable]
     public class TemplateInitException : VelocityException, IExtendedParseException
     {
         /// <summary> Returns the Template name where this exception occured.</summary>

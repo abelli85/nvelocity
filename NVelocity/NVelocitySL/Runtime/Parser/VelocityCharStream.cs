@@ -141,7 +141,7 @@ namespace NVelocity.Runtime.Parser
             }
             catch (System.Exception t)
             {
-                throw new System.ApplicationException(t.Message);
+                throw new System.Exception(t.Message);
             }
 
 
@@ -386,7 +386,7 @@ namespace NVelocity.Runtime.Parser
         /// <param name="buffersize">
         /// </param>
         public VelocityCharStream(Stream dstream, int startline, int startcolumn, int buffersize)
-            : this(new StreamReader(dstream, Encoding.Default), startline, startcolumn, buffersize)
+            : this(new StreamReader(dstream, Encoding.UTF8), startline, startcolumn, buffersize)
         {
         }
 
@@ -411,7 +411,7 @@ namespace NVelocity.Runtime.Parser
         /// </param>
         public void ReInit(Stream dstream, int startline, int startcolumn, int buffersize)
         {
-            ReInit(new StreamReader(dstream, Encoding.Default), startline, startcolumn, buffersize);
+            ReInit(new StreamReader(dstream, Encoding.UTF8), startline, startcolumn, buffersize);
         }
         /// <param name="dstream">
         /// </param>

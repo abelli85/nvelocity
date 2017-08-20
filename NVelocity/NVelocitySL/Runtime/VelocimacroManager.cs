@@ -23,6 +23,8 @@ namespace NVelocity.Runtime
 
     using Directive;
     using Parser.Node;
+    using System.Collections.Generic;
+    using System;
 
     /// <summary> Manages VMs in namespaces.  Currently, two namespace modes are
     /// supported:
@@ -46,7 +48,7 @@ namespace NVelocity.Runtime
     {
         private void InitBlock()
         {
-            namespaceHash = new Hashtable();
+            namespaceHash = new Dictionary<object, object>();
         }
         /// <summary>  public switch to let external user of manager to control namespace
         /// usage indep of properties.  That way, for example, at startup the
@@ -105,10 +107,10 @@ namespace NVelocity.Runtime
         private IDictionary namespaceHash;
 
         /// <summary>reference to global namespace hash </summary>
-        private IDictionary globalNamespace;
+        private IDictionary<object,object> globalNamespace;
 
         /// <summary>set of names of library tempates/namespaces </summary>
-        private Hashtable libraries = new Hashtable();
+        private Dictionary<object, object> libraries = new Dictionary<object, object>();
 
         /*
         * big switch for namespaces.  If true, then properties control
@@ -182,7 +184,7 @@ namespace NVelocity.Runtime
                 *  global
                 */
 
-                isLib = libraries.Contains(namespace_Renamed);
+                isLib = libraries.ContainsKey(namespace_Renamed);
             }
 
             if (!isLib && UsingNamespaces(namespace_Renamed))
@@ -192,7 +194,7 @@ namespace NVelocity.Runtime
                 *  if not, Add it to the namespaces, and Add the VM
                 */
 
-                IDictionary local = GetNamespace(namespace_Renamed, true);
+                IDictionary<object, object> local = GetNamespace(namespace_Renamed, true);
                 local[vmName] = me;
 
                 return true;
@@ -257,7 +259,7 @@ namespace NVelocity.Runtime
                 * moment, check if local namespace contains a macro we are looking for
                 * if so, return it instead of the global one
                 */
-                IDictionary local = GetNamespace(renderingTemplate, false);
+                IDictionary<object, object> local = GetNamespace(renderingTemplate, false);
                 if (local != null)
                 {
                     MacroEntry me = (MacroEntry)local[vmName];
@@ -271,7 +273,7 @@ namespace NVelocity.Runtime
 
             if (UsingNamespaces(namespace_Renamed))
             {
-                IDictionary local = GetNamespace(namespace_Renamed, false);
+                IDictionary<object, object> local = GetNamespace(namespace_Renamed, false);
 
                 /*
                 *  if we have macros defined for this template
@@ -347,9 +349,9 @@ namespace NVelocity.Runtime
         /// </param>
         /// <returns> namespace Map of VMs or null if doesn't exist
         /// </returns>
-        private IDictionary GetNamespace(string namespace_Renamed, bool addIfNew)
+        private IDictionary<object, object> GetNamespace(string namespace_Renamed, bool addIfNew)
         {
-            IDictionary h = (IDictionary)namespaceHash[namespace_Renamed];
+            IDictionary<object,object> h = (IDictionary<object, object>)namespaceHash[namespace_Renamed];
 
             if (h == null && addIfNew)
             {
@@ -366,9 +368,10 @@ namespace NVelocity.Runtime
         /// </param>
         /// <returns> Hash added to namespaces, ready for use
         /// </returns>
-        private IDictionary AddNamespace(string namespace_Renamed)
+        private IDictionary<object, object> AddNamespace(string namespace_Renamed)
         {
-            IDictionary h = new Hashtable(17, 0.5f);
+            // IDictionary h = new Hashtable(17, 0.5f);
+            IDictionary<object, object> h = new Dictionary<object, object>(17);
             object oh;
 
             object tempObject;
@@ -435,7 +438,7 @@ namespace NVelocity.Runtime
         {
             if (UsingNamespaces(namespace_Renamed))
             {
-                IDictionary local = GetNamespace(namespace_Renamed, false);
+                IDictionary<object, object> local = GetNamespace(namespace_Renamed, false);
 
                 /*
                 *  if we have this macro defined in this namespace, then

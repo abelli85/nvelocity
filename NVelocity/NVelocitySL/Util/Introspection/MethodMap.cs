@@ -19,6 +19,7 @@
 namespace NVelocity.Util.Introspection
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary> </summary>
     /// <author>  <a href="mailto:jvanzyl@apache.org">Jason van Zyl</a>
@@ -40,8 +41,8 @@ namespace NVelocity.Util.Introspection
         private const int INCOMPARABLE = 2;
 
         /// <summary> Keep track of all methods with the same name.</summary>
-        //UPGRADE_TODO: Class“java.util.HashMap”被转换为具有不同行为的 'System.Collections.Hashtable'。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javautilHashMap'"
-        internal System.Collections.IDictionary methodByNameMap = new System.Collections.Hashtable();
+                    //UPGRADE_TODO: Class“java.util.HashMap”被转换为具有不同行为的 'System.Collections.Hashtable'。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javautilHashMap'"
+        internal System.Collections.IDictionary methodByNameMap = new Dictionary<object, object>();
 
         /// <summary> Add a method to a list of methods by name.
         /// For a particular class we are keeping track
@@ -57,7 +58,7 @@ namespace NVelocity.Util.Introspection
 
             if (l == null)
             {
-                l = new System.Collections.ArrayList();
+                l = new List<object>();
                 methodByNameMap[methodName] = l;
             }
 
@@ -202,7 +203,7 @@ namespace NVelocity.Util.Introspection
                             case INCOMPARABLE:
                                 if (equivalentMatches == null)
                                 {
-                                    equivalentMatches = new System.Collections.ArrayList(bestMatchTypes.Length);
+                                    equivalentMatches = new List<object>(bestMatchTypes.Length);
                                 }
                                 equivalentMatches.Add(method);
                                 break;
@@ -227,7 +228,7 @@ namespace NVelocity.Util.Introspection
         /// we run across ambiguous overloading.  Caught
         /// by the introspector.
         /// </summary>
-        [Serializable]
+        //[Serializable]
         public class AmbiguousException : System.SystemException
         {
             

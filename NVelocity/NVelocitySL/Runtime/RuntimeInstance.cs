@@ -314,7 +314,7 @@ namespace NVelocity.Runtime
             * and a store for the application attributes
             */
 
-            applicationAttributes = new Hashtable();
+            applicationAttributes = new Dictionary<object, object>();
         }
 
         /// <summary> This is the primary initialization method in the Velocity

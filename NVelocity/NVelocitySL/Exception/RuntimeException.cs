@@ -24,8 +24,8 @@ namespace NVelocity.Exception
     /// <summary>
     /// 
     /// </summary>
-    [Serializable]
-    public class RuntimeException : ApplicationException
+    //[Serializable]
+    public class RuntimeException : Exception
     {
         /// <summary>
         /// 

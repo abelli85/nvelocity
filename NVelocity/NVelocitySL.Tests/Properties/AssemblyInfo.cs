@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("NVelocitySL")]
+[assembly: AssemblyTitle("NVelocitySL.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NVelocitySL")]
+[assembly: AssemblyProduct("NVelocitySL.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("db1b50cf-56b3-4c53-b220-e7efd5731f0c")]
+[assembly: Guid("3c1228ca-2a04-493c-aa81-f2a363712bc7")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
@@ -29,9 +29,8 @@ using System.Runtime.InteropServices;
 //      生成号
 //      修订号
 //
-// 您可以指定所有值，也可以通过使用“*”来使用
+//可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”: :
+// [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-
-[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("NVelocitySL.Tests")]

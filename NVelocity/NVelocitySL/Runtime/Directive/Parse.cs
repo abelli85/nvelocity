@@ -23,6 +23,7 @@ namespace NVelocity.Runtime.Directive
     using Context;
     using Exception;
     using Parser.Node;
+    using System.Collections.Generic;
 
     /// <summary> Pluggable directive that handles the <code>#parse()</code>
     /// statement in VTL.
@@ -233,7 +234,7 @@ namespace NVelocity.Runtime.Directive
             */
             if (macroLibraries == null)
             {
-                macroLibraries = new System.Collections.ArrayList();
+                macroLibraries = new List<object>();
             }
 
             context.MacroLibraries = macroLibraries;

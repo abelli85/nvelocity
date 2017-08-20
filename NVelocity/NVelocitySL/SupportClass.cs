@@ -21,6 +21,7 @@ namespace NVelocity
 {
     using System;
     using System.Collections;
+    using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
 
@@ -450,11 +451,11 @@ namespace NVelocity
             }
 
             /// <summary> The hash table data.</summary>
-            [NonSerialized]
+            //[NonSerialized]
             private Entry[] table;
 
             /// <summary> The total number of entries in the hash table.</summary>
-            [NonSerialized]
+            //[NonSerialized]
             private int count;
 
             /// <summary> The table is rehashed when its size exceeds this threshold.  (The
@@ -936,7 +937,7 @@ namespace NVelocity
             internal class PrimitiveEntityMap : Entities.EntityMap
             {
                 //UPGRADE_TODO: Class“java.util.HashMap”被转换为具有不同行为的 'System.Collections.Hashtable'。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javautilHashMap'"
-                private System.Collections.IDictionary mapNameToValue = new System.Collections.Hashtable();
+                private System.Collections.IDictionary mapNameToValue = new Dictionary<object, object>();
 
                 private IntHashMap mapValueToName = new IntHashMap();
 
@@ -1002,9 +1003,9 @@ namespace NVelocity
                 public HashEntityMap()
                 {
                     //UPGRADE_TODO: Class“java.util.HashMap”被转换为具有不同行为的 'System.Collections.Hashtable'。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javautilHashMap'"
-                    mapNameToValue = new System.Collections.Hashtable();
+                    mapNameToValue = new Dictionary<object, object>();
                     //UPGRADE_TODO: Class“java.util.HashMap”被转换为具有不同行为的 'System.Collections.Hashtable'。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javautilHashMap'"
-                    mapValueToName = new System.Collections.Hashtable();
+                    mapValueToName = new Dictionary<object, object>();
                 }
             }
 
@@ -1015,10 +1016,10 @@ namespace NVelocity
                 {
                     //UPGRADE_TODO: 构造函数“java.util.TreeMap.TreeMap”被转换为具有不同行为的 'System.Collections.SortedList'。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javautilTreeMapTreeMap'"
                     //UPGRADE_ISSUE: “java.util.TreeMap”和“System.Collections.SortedList”之间的类层次结构差异可能导致编译错误。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1186'"
-                    mapNameToValue = new System.Collections.SortedList();
+                    mapNameToValue = new Dictionary<object,object>();
                     //UPGRADE_TODO: 构造函数“java.util.TreeMap.TreeMap”被转换为具有不同行为的 'System.Collections.SortedList'。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javautilTreeMapTreeMap'"
                     //UPGRADE_ISSUE: “java.util.TreeMap”和“System.Collections.SortedList”之间的类层次结构差异可能导致编译错误。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1186'"
-                    mapValueToName = new System.Collections.SortedList();
+                    mapValueToName = new Dictionary<object, object>();
                 }
             }
 
@@ -2693,6 +2694,7 @@ namespace NVelocity
         /// <summary>
         /// Gives support functions to Http internet connections.
         /// </summary>
+        /*
         public class URLConnectionSupport
         {
             /// <summary>
@@ -2825,7 +2827,7 @@ namespace NVelocity
                 return fieldHeaderDate;
             }
         }
-
+        */
 
 
         public static long FileLength(FileInfo file)
@@ -2849,7 +2851,7 @@ namespace NVelocity
         {
             public static DateTimeFormatHashTable manager = new DateTimeFormatHashTable();
 
-            public class DateTimeFormatHashTable : Hashtable
+            public class DateTimeFormatHashTable : Dictionary<object, object>
             {
                 public void SetDateFormatPattern(DateTimeFormatInfo format, String newPattern)
                 {

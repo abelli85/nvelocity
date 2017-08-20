@@ -38,7 +38,7 @@ namespace NVelocity.Exception
     /// </author>
     /// <version>  $Id: ParseErrorException.java 685685 2008-08-13 21:43:27Z nbubna $
     /// </version>
-    [Serializable]
+    //[Serializable]
     public class ParseErrorException : VelocityException
     {
         /// <summary> Return the column number of the parsing Error, or -1 if not defined.

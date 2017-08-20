@@ -20,6 +20,7 @@ namespace Commons.Collections
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
+    using System.Globalization;
 
     /// <summary>
     /// This class extends normal Java properties by adding the possibility
@@ -102,7 +103,7 @@ namespace Commons.Collections
     /// much time to improve it), I wrote it this way.  If you don't like
     /// it, go ahead and tune it up!</para>
     /// </summary>
-    public class ExtendedProperties : Hashtable
+    public class ExtendedProperties : Dictionary<object, object>
     {
         private static readonly Byte DEFAULT_BYTE;
         private static readonly Boolean DEFAULT_BOOLEAN;
@@ -129,7 +130,7 @@ namespace Commons.Collections
         /// <summary>
         /// File separator.
         /// </summary>
-        protected readonly  String fileSeparator = Path.AltDirectorySeparatorChar.ToString();
+        protected readonly String fileSeparator = Path.AltDirectorySeparatorChar.ToString();
 
         /// <summary>
         /// Has this configuration been initialized.
@@ -148,7 +149,7 @@ namespace Commons.Collections
         /// you wish to perform operations with configuration
         /// information in a particular order.
         /// </summary>
-        protected internal ArrayList keysAsListed = new ArrayList();
+        protected internal List<object> keysAsListed = new List<object>();
 
         /// <summary>
         /// Creates an empty extended properties object.
@@ -254,7 +255,7 @@ namespace Commons.Collections
 
                 if (reader == null)
                 {
-                    reader = new PropertiesReader(new StreamReader(input));
+                    reader = new PropertiesReader(new StreamReader(input, Encoding.UTF8));
                 }
 
                 try
@@ -362,7 +363,7 @@ namespace Commons.Collections
             /*
         *  first, try to Get from the 'user value' store
         */
-            Object o = this[key];
+            Object o = this.ContainsKey(key) ? this[key] : null;
 
             if (o == null)
             {
@@ -397,7 +398,7 @@ namespace Commons.Collections
         /// <param name="token"></param>
         public void AddProperty(String key, Object token)
         {
-            Object o = this[key];
+            Object o = this.ContainsKey(key) ? this[key] : null;
 
             /*
         *  $$$ GMJ
@@ -414,14 +415,14 @@ namespace Commons.Collections
 
             if (o is String)
             {
-                ArrayList v = new ArrayList(2);
+                List<object> v = new List<object>(2);
                 v.Add(o);
                 v.Add(token);
                 this[key] = v;
             }
-            else if (o is ArrayList)
+            else if (o is List<object>)
             {
-                ((ArrayList)o).Add(token);
+                ((List<object>)o).Add(token);
             }
             else
             {
@@ -530,14 +531,14 @@ namespace Commons.Collections
 
             if (o is String)
             {
-                ArrayList v = new ArrayList(2);
+                List<object> v = new List<object>(2);
                 v.Add(o);
                 v.Add(token);
                 this[key] = v;
             }
-            else if (o is ArrayList)
+            else if (o is List<object>)
             {
-                ((ArrayList)o).Add(token);
+                ((List<object>)o).Add(token);
             }
             else
             {
@@ -678,7 +679,7 @@ namespace Commons.Collections
         /// </returns>
         public IEnumerable GetKeys(String prefix)
         {
-            ArrayList matchingKeys = new ArrayList();
+            List<object> matchingKeys = new List<object>();
 
             foreach (Object key in Keys)
             {
@@ -763,10 +764,10 @@ namespace Commons.Collections
 
         private String ValueToString(Object value)
         {
-            if (value is ArrayList)
+            if (value is List<object>)
             {
-                String s = "ArrayList :: ";
-                foreach (Object o in (ArrayList)value)
+                String s = "List<object> :: ";
+                foreach (Object o in (List<object>)value)
                 {
                     if (!s.EndsWith(", "))
                     {
@@ -814,7 +815,7 @@ namespace Commons.Collections
         /// </exception>
         public String GetString(String key, String defaultValue)
         {
-            Object value = this[key];
+            Object value = this.ContainsKey(key) ? this[key] : null;
 
             if (value is String)
             {
@@ -831,9 +832,9 @@ namespace Commons.Collections
                     return defaults.GetString(key, defaultValue);
                 }
             }
-            else if (value is ArrayList)
+            else if (value is List<object>)
             {
-                return (String)((ArrayList)value)[0];
+                return (String)((List<object>)value)[0];
             }
             else
             {
@@ -856,10 +857,10 @@ namespace Commons.Collections
         /// malformed (does not contain an equals sign).
         ///
         /// </exception>
-        public Hashtable GetProperties(String key)
+        public Dictionary<object, object> GetProperties(String key)
         {
             //UPGRADE_TODO: Format of property file may need to be changed. 'ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="jlca1089"'
-            return GetProperties(key, new Hashtable());
+            return GetProperties(key, new Dictionary<object, object>());
         }
 
         /// <summary> Get a list of properties associated with the given
@@ -879,7 +880,7 @@ namespace Commons.Collections
         /// malformed (does not contain an equals sign).
         ///
         /// </exception>
-        public Hashtable GetProperties(String key, Hashtable defaultProps)
+        public Dictionary<object, object> GetProperties(String key, Dictionary<object, object> defaultProps)
         {
             /*
         * Grab an array of the tokens for this key.
@@ -889,7 +890,7 @@ namespace Commons.Collections
             /*
         * Each token is of the form 'key=value'.
         */
-            Hashtable props = new Hashtable(defaultProps);
+            Dictionary<object, object> props = new Dictionary<object, object>(defaultProps);
             for (int i = 0; i < tokens.Length; i++)
             {
                 String token = tokens[i];
@@ -922,18 +923,18 @@ namespace Commons.Collections
         /// </exception>
         public String[] GetStringArray(String key)
         {
-            Object value = this[key];
+            Object value = this.ContainsKey(key) ? this[key] : null;
 
             // What's your vector, Victor?
-            ArrayList vector;
+            List<object> vector;
             if (value is String)
             {
-                vector = new ArrayList(1);
+                vector = new List<object>(1);
                 vector.Add(value);
             }
-            else if (value is ArrayList)
+            else if (value is List<object>)
             {
-                vector = (ArrayList)value;
+                vector = (List<object>)value;
             }
             else if (value == null)
             {
@@ -972,7 +973,7 @@ namespace Commons.Collections
         /// object that is not a Vector.
         ///
         /// </exception>
-        public ArrayList GetVector(String key)
+        public List<object> GetVector(String key)
         {
             return GetVector(key, null);
         }
@@ -1001,17 +1002,17 @@ namespace Commons.Collections
         /// object that is not a Vector.
         ///
         /// </exception>
-        public ArrayList GetVector(String key, ArrayList defaultValue)
+        public List<object> GetVector(String key, List<object> defaultValue)
         {
             Object value = this[key];
 
-            if (value is ArrayList)
+            if (value is List<object>)
             {
-                return (ArrayList)value;
+                return (List<object>)value;
             }
             else if (value is String)
             {
-                ArrayList v = new ArrayList(1);
+                List<object> v = new List<object>(1);
                 v.Add(value);
                 this[key] = v;
                 return v;
@@ -1020,7 +1021,7 @@ namespace Commons.Collections
             {
                 if (defaults == null)
                 {
-                    return (defaultValue ?? new ArrayList());
+                    return (defaultValue ?? new List<object>());
                 }
                 else
                 {
@@ -1076,7 +1077,7 @@ namespace Commons.Collections
         /// </exception>
         public Boolean GetBoolean(String key, Boolean defaultValue)
         {
-            Object value = this[key];
+            Object value = this.ContainsKey(key) ? this[key] : null;
 
             if (value is Boolean)
             {
@@ -1302,7 +1303,7 @@ namespace Commons.Collections
         /// </exception>
         public Int32 GetInteger(String key, Int32 defaultValue)
         {
-            Object value = this[key];
+            Object value = this.ContainsKey(key) ? this[key] : null;
 
             if (value is Int32)
             {
@@ -1573,9 +1574,9 @@ namespace Commons.Collections
 
             try
             {
-                return (T)Convert.ChangeType(o, typeof(T));
+                return (T)Convert.ChangeType(o, typeof(T), CultureInfo.CurrentCulture);
             }
-            catch 
+            catch
             {
                 return defaultValue;
             }

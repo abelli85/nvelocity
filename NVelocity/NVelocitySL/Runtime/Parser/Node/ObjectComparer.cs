@@ -3,6 +3,7 @@ namespace NVelocity.Runtime.Parser.Node
 {
     using System;
     using System.Collections;
+    using System.Collections.Generic;
 
     /// <summary>
     /// ObjectComparer allows you to compare primitive types and some others
@@ -17,7 +18,7 @@ namespace NVelocity.Runtime.Parser.Node
         public const int Equal = 0;
         public const int Greater = 1;
 
-        private static readonly IDictionary comparers = new Hashtable();
+        private static readonly IDictionary comparers = new Dictionary<object, object>();
         private static readonly ObjectComparer instance = new ObjectComparer();
 
         static ObjectComparer()

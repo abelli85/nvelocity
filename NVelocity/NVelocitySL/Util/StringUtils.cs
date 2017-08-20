@@ -231,7 +231,7 @@ namespace NVelocity.Util
             return list;
         }
 
-        public static ArrayList TrimStrings(ArrayList list)
+        public static List<object> TrimStrings(List<object> list)
         {
             if (list == null)
                 return null;

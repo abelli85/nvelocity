@@ -183,10 +183,10 @@ namespace NVelocity.Runtime
 
                 if (libfiles != null)
                 {
-                    macroLibVec = new ArrayList();
-                    if (libfiles is ArrayList)
+                    macroLibVec = new List<object>();
+                    if (libfiles is List<object>)
                     {
-                        var lbs = (ArrayList)libfiles;
+                        var lbs = (List<object>)libfiles;
 
                         foreach (var lb in lbs)
                         {

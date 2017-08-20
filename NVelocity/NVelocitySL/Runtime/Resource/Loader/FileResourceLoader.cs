@@ -50,7 +50,7 @@ namespace NVelocity.Runtime.Resource.Loader
         /// times of the files. This is synchronizedMap
         /// instance.
         /// </summary>
-        private IDictionary templatePaths = new Hashtable();
+        private IDictionary templatePaths = new Dictionary<object, object>();
 
         /// <summary>Shall we Inspect unicode files to see what encoding they contain?. </summary>
         private bool unicode = false;
@@ -64,7 +64,7 @@ namespace NVelocity.Runtime.Resource.Loader
                 log.Trace("FileResourceLoader : initialization starting.");
             }
 
-            ArrayList vectors = configuration.GetVector("path");
+            List<object> vectors = configuration.GetVector("path");
 
             foreach (var o in vectors)
             {
@@ -221,7 +221,8 @@ namespace NVelocity.Runtime.Resource.Loader
 
                 if (file.Exists)
                 {
-                    return new BufferedStream(file.OpenRead());
+                    //return new BufferedStream(file.OpenRead());
+                    return file.OpenRead();
                 }
                 else
                 {

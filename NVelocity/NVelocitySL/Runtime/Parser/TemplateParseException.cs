@@ -36,7 +36,7 @@ namespace NVelocity.Runtime.Parser
     /// </version>
     /// <since> 1.5
     /// </since>
-    [Serializable]
+    //[Serializable]
     public class TemplateParseException : ParseException, IExtendedParseException
     {
         /// <summary> returns the Template name where this exception occured.</summary>

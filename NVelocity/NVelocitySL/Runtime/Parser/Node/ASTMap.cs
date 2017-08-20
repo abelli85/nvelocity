@@ -20,6 +20,7 @@
 namespace NVelocity.Runtime.Parser.Node
 {
     using Context;
+    using System.Collections.Generic;
 
     /// <summary> AST Node for creating a map / dictionary.
     /// 
@@ -61,7 +62,7 @@ namespace NVelocity.Runtime.Parser.Node
         {
             int size = GetNumChildren();
 
-            System.Collections.IDictionary objectMap = new System.Collections.Hashtable();
+            System.Collections.IDictionary objectMap = new Dictionary<object, object>();
 
             for (int i = 0; i < size; i += 2)
             {

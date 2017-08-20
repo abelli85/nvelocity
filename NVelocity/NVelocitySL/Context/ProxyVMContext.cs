@@ -85,10 +85,12 @@ namespace NVelocity.Context
 
         }
 
-        internal Hashtable vmproxyhash = new Hashtable(8, 0.8f);
+        // internal Dictionary<object, object> vmproxyhash = new Dictionary<object, object>(8, 0.8f);
+        internal Dictionary<object, object> vmproxyhash = new Dictionary<object, object>(8);
 
         /// <summary>container for any local or constant macro arguments. Size must be power of 2. </summary>
-        internal IDictionary localcontext = new Hashtable(8, 0.8f);
+        /// internal IDictionary localcontext = new Dictionary<object, object>(8, 0.8f);
+        internal IDictionary localcontext = new Dictionary<object, object>(8);
 
         /// <summary>support for local context scope feature, where all references are local </summary>
         private bool localContextScope;
@@ -317,7 +319,7 @@ namespace NVelocity.Context
         /// </seealso>
         public override bool ContainsKey(object key)
         {
-            return vmproxyhash.Contains(key) || localcontext.Contains(key) || base.ContainsKey(key);
+            return vmproxyhash.ContainsKey(key) || localcontext.Contains(key) || base.ContainsKey(key);
         }
 
         /// <seealso cref="org.apache.velocity.context.Context.remove(java.lang.Object)">

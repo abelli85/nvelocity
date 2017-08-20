@@ -68,7 +68,7 @@ namespace NVelocity.Runtime.Resource
         /// 
         /// <p>&lt;loader-id&gt;.resource.loader.&lt;property&gt; = &lt;value&gt;</p>
         /// </summary>
-        private IList sourceInitializerList = new ArrayList();
+        private IList sourceInitializerList = new List<object>();
 
         /// <summary> Has this Manager been initialized?</summary>
         private bool isInit = false;
@@ -121,7 +121,7 @@ namespace NVelocity.Runtime.Resource
                     ExtendedProperties configuration = (ExtendedProperties)it.Current;
 
                     string loaderClass = StringUtils.NullTrim(configuration.GetString("class"));
-                    ResourceLoader loaderInstance = (ResourceLoader)configuration["instance"];
+                    ResourceLoader loaderInstance = configuration.ContainsKey("instance") ? (ResourceLoader)configuration["instance"] : null;
 
                     if (loaderInstance != null)
                     {
@@ -200,7 +200,7 @@ namespace NVelocity.Runtime.Resource
         /// </summary>
         private void AssembleResourceLoaderInitializers()
         {
-            ArrayList resourceLoaderNames = rsvc.Configuration.GetVector(RuntimeConstants.RESOURCE_LOADER);
+            List<object> resourceLoaderNames = rsvc.Configuration.GetVector(RuntimeConstants.RESOURCE_LOADER);
             StringUtils.TrimStrings(resourceLoaderNames);
 
             for (IEnumerator it = resourceLoaderNames.GetEnumerator(); it.MoveNext(); )

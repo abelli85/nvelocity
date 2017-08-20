@@ -24,8 +24,8 @@ namespace NVelocity.Runtime.Parser
 {
     using System;
 
-    [Serializable]
-    public class TokenMgrError : System.ApplicationException
+    //[Serializable]
+    public class TokenMgrError : System.Exception
     {
         /// <summary> You can also modify the body of this method to customize your error messages.
         /// For example, cases like LOOP_DETECTED and INVALID_LEXICAL_STATE are not

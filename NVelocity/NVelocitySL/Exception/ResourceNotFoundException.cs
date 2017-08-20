@@ -30,7 +30,7 @@ namespace NVelocity.Exception
     /// useful information in the exception's message.  For complete
     /// information, consult the runtime Log.
     /// </summary>
-    [Serializable]
+    //[Serializable]
     public class ResourceNotFoundException : VelocityException
     {
         public ResourceNotFoundException(String exceptionMessage)
@@ -43,9 +43,11 @@ namespace NVelocity.Exception
         {
         }
 
+        /*
         public ResourceNotFoundException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+        */
     }
 }

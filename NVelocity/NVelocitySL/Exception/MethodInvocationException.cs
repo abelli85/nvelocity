@@ -35,7 +35,7 @@ namespace NVelocity.Exception
     /// </author>
     /// <version>  $Id: MethodInvocationException.java 703544 2008-10-10 18:15:53Z nbubna $
     /// </version>
-    [Serializable]
+    //[Serializable]
     public class MethodInvocationException : VelocityException, IExtendedParseException
     {
         /// <summary>  Returns the name of the method that threw the

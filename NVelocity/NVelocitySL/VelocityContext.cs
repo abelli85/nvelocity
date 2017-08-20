@@ -23,6 +23,8 @@ namespace NVelocity
     using System.Collections;
 
     using Context;
+    using System.Collections.Generic;
+    using NVelocitySL.Context;
 
     /// <summary>  General purpose implemention of the application Context
     /// interface for general application use.  This class should
@@ -56,7 +58,7 @@ namespace NVelocity
     public class VelocityContext : AbstractContext, ICloneable
     {
         /// <summary>  Storage for key/value pairs.</summary>
-        private IDictionary context = null;
+        private IDictionary<object,object> context = null;
 
         /// <summary>  Creates a new instance (with no inner context).</summary>
         public VelocityContext()
@@ -69,7 +71,7 @@ namespace NVelocity
         /// </summary>
         /// <param name="context">
         /// </param>
-        public VelocityContext(IDictionary context)
+        public VelocityContext(IDictionary<object,object> context)
             : this(context, null)
         {
         }
@@ -98,10 +100,10 @@ namespace NVelocity
         /// </param>
         /// <param name="innerContext">Inner context.
         /// </param>
-        public VelocityContext(IDictionary context, IContext innerContext)
+        public VelocityContext(IDictionary<object, object> context, IContext innerContext)
             : base(innerContext)
         {
-            this.context = (context == null ? new Hashtable() : context);
+            this.context = (context == null ? new Dictionary<object, object>() : context);
         }
 
         /// <summary>  retrieves value for key from internal
@@ -114,7 +116,7 @@ namespace NVelocity
         /// </returns>
         public override object InternalGet(string key)
         {
-            return context[key];
+            return context.ContainsKey(key) ? context[key] : null;
         }
 
         /// <summary>  stores the value for key to internal
@@ -129,8 +131,7 @@ namespace NVelocity
         /// </returns>
         public override object InternalPut(string key, object value)
         {
-            object tempObject;
-            tempObject = context[key];
+            object tempObject = context.ContainsKey(key) ? context[key] : null;
             context[key] = value;
             return tempObject;
         }
@@ -145,7 +146,7 @@ namespace NVelocity
         /// </returns>
         public override bool InternalContainsKey(object key)
         {
-            return context.Contains(key);
+            return context.ContainsKey(key);
         }
 
         /// <summary>  returns array of keys
@@ -188,7 +189,7 @@ namespace NVelocity
             try
             {
                 clone = (VelocityContext)base.MemberwiseClone();
-                clone.context = new Hashtable(context);
+                clone.context = new Dictionary<object, object>(context);
             }
             catch
             {

@@ -17,6 +17,8 @@
 * under the License.    
 */
 
+using System.Collections.Generic;
+
 namespace NVelocity.Runtime.Log
 {
 
@@ -36,7 +38,7 @@ namespace NVelocity.Runtime.Log
     /// </since>
     public class HoldingLogChute : ILogChute
     {
-        private System.Collections.ArrayList pendingMessages = System.Collections.ArrayList.Synchronized(new System.Collections.ArrayList(10));
+        private List<object> pendingMessages = new List<object>(10);
         private volatile bool transferring = false;
 
         /// <seealso cref="LogChute.Init(IRuntimeServices)">

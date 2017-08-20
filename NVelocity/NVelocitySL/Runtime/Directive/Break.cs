@@ -95,7 +95,7 @@ namespace NVelocity.Runtime.Directive
             throw new BreakException();
         }
 
-        [Serializable]
+        //[Serializable]
         public class BreakException : System.SystemException
         {
 

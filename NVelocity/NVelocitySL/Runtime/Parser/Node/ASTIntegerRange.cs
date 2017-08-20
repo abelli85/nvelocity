@@ -24,6 +24,7 @@ namespace NVelocity.Runtime.Parser.Node
 
     using Context;
     using Log;
+    using System.Collections.Generic;
 
     /// <summary> handles the range 'operator'  [ n .. m ]
     /// 
@@ -123,7 +124,7 @@ namespace NVelocity.Runtime.Parser.Node
             * Fill the range with the appropriate values.
             */
 
-            System.Collections.IList elements = new System.Collections.ArrayList(nbrElements);
+            System.Collections.IList elements = new List<object>(nbrElements);
             int value = l;
 
             for (int i = 0; i < nbrElements; i++)

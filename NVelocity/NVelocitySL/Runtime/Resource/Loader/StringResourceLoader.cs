@@ -24,6 +24,7 @@ namespace NVelocity.Runtime.Resource.Loader
     using Commons.Collections;
     using Exception;
     using Util;
+    using System.Collections.Generic;
 
 
     /// <summary> Resource loader that works with Strings. Users should manually Add
@@ -141,7 +142,7 @@ namespace NVelocity.Runtime.Resource.Loader
         public const string REPOSITORY_ENCODING_DEFAULT = "UTF-8";
 
 
-        protected internal static readonly System.Collections.IDictionary STATIC_REPOSITORIES = System.Collections.Hashtable.Synchronized(new System.Collections.Hashtable());
+        protected internal static readonly System.Collections.IDictionary STATIC_REPOSITORIES = new Dictionary<object, object>();
 
         /// <summary> Returns a reference to the default static repository.</summary>
         public static IStringResourceRepository GetRepository()

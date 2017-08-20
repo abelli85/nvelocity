@@ -27,7 +27,7 @@ namespace NVelocity.Exception
     /// </summary>
     /// <since> 1.6
     /// </since>
-    [Serializable]
+    //[Serializable]
     public class MacroOverflowException : VelocityException
     {
 

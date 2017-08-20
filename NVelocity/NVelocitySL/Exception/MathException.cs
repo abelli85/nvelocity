@@ -30,7 +30,7 @@ namespace NVelocity.Exception
     /// </since>
     /// <version>  $Id: MathException.java 685685 2008-08-13 21:43:27Z nbubna $
     /// </version>
-    [Serializable]
+    //[Serializable]
     public class MathException : VelocityException
     {
         public MathException(string exceptionMessage)

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>智能水务Abel</Author>
+  <LastAuthor>智能水务Abel</LastAuthor>
+  <Created>2017-08-14T03:53:36Z</Created>
+  <LastSaved>2017-08-14T07:53:10Z</LastSaved>
+  <Company>Abel</Company>
+  <Version>15.00</Version>
+ </DocumentProperties>
+ <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <WorkbookGuid dt:dt="string">ff0a1a31-93b2-4336-a9db-54e1e02a328c</WorkbookGuid>
+ </CustomDocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>11835</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Center"/>
+   <Borders/>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s16">
+   <NumberFormat ss:Format="General Date"/>
+  </Style>
+  <Style ss:ID="s17">
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s18">
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s19">
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s20">
+   <NumberFormat ss:Format="Short Date"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Sheet1">
+  <Table ss:ExpandedColumnCount="32" ss:ExpandedRowCount="${meterCount}" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="54" ss:DefaultRowHeight="13.5">
+   <Column ss:StyleID="s19" ss:AutoFitWidth="0" ss:Width="62.25"/>
+   <Column ss:StyleID="s19" ss:AutoFitWidth="0"/>
+   <Column ss:Index="4" ss:StyleID="s19" ss:AutoFitWidth="0" ss:Span="6"/>
+   <Column ss:Index="11" ss:StyleID="s19" ss:AutoFitWidth="0" ss:Width="78"/>
+   <Column ss:StyleID="s19" ss:Width="290.25"/>
+   <Column ss:Width="76.5" ss:Span="1"/>
+   <Column ss:Index="15" ss:StyleID="s19" ss:Width="290.25"/>
+   <Column ss:StyleID="s19" ss:Width="83.25"/>
+   <Column ss:StyleID="s19" ss:Width="69.75"/>
+   <Column ss:Width="96.75"/>
+   <Column ss:Index="20" ss:StyleID="s19" ss:Width="69.75" ss:Span="1"/>
+   <Column ss:Index="22" ss:StyleID="s19" ss:Width="90"/>
+   <Column ss:Index="24" ss:Width="90"/>
+   <Column ss:StyleID="s19" ss:Width="90" ss:Span="1"/>
+   <Column ss:Index="28" ss:StyleID="s19" ss:AutoFitWidth="0"/>
+   <Column ss:StyleID="s19" ss:Width="103.5"/>
+   <Column ss:StyleID="s19" ss:AutoFitWidth="0"/>
+   <Column ss:Width="103.5"/>
+   <Column ss:StyleID="s19" ss:AutoFitWidth="0"/>
+   <Row>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">水表标识</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">路线标识</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">序号</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">水司编号</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">分区编号</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">街道</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">地址1</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">地址2</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">城市</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">邮编</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">分区备注</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">安装位置</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">维度</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">经度</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">用户名称</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">用户编号</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">水表编号</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">底度日期</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">底度</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">AMR通道</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">AMR设备</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">AMR标识</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">AMR地址</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">抄读日期</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">表计标识</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">抄读状态</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">原始读数</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">读数单位</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">备注（用户编号）</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">报警</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">时标</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">平台账号</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">id</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">routeId</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">sequence</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">siteId</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">siteNo</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">street</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">stN1</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">stN2</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">city</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">zip</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">siteRemark</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">meterLocation</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">latitude</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">longitude</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">customerName</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">customerInfo</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">exMeterId</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">exDate</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">exValue</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">amrChannel</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">amrDevice</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">amrMeterId</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">srfAddress</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">meterId</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">readoutStatus</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">value</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">unit</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">comment</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">alarm</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">timestamp</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">login</Data></Cell>
+   </Row>
+#foreach ($m1 in $meterList)
+   <Row>
+    <Cell><Data ss:Type="Number">${m1.id}</Data></Cell>
+    <Cell><Data ss:Type="Number">${m1.routeId}</Data></Cell>
+    <Cell><Data ss:Type="Number">${m1.sequence}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.siteId}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.siteNo}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.street}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.stN1}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.stN2}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.city}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.zip}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.siteRemark}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.meterLocation}</Data></Cell>
+    <Cell><Data ss:Type="Number">$!{m1.latitude}</Data></Cell>
+    <Cell><Data ss:Type="Number">$!{m1.longitude}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.customerName}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.customerInfo}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.exMeterId}</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="DateTime">${m1.exDateStr}</Data></Cell>
+    <Cell><Data ss:Type="Number">$!{m1.exValue}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.amrChannel}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.amrDevice}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.amrMeterId}</Data></Cell>
+    <Cell><Data ss:Type="Number">${m1.srfAddress}</Data></Cell>
+    <Cell ss:StyleID="s20"><Data ss:Type="DateTime">${m1.dateStr}</Data></Cell>
+    <Cell><Data ss:Type="String">${m1.meterId}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.readoutStatus}</Data></Cell>
+    <Cell><Data ss:Type="Number">$!{m1.value}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.unit}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.comment}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.alarm}</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="DateTime">${m1.timestampStr}</Data></Cell>
+    <Cell><Data ss:Type="String">$!{m1.login}</Data></Cell>
+   </Row>
+#end
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Zoom>85</Zoom>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>9</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

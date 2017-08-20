@@ -26,7 +26,7 @@ namespace NVelocity.Exception
     /// Base class for Velocity exceptions thrown to the
     /// application layer.
     /// </summary>
-    [Serializable]
+    //[Serializable]
     public class VelocityException : Exception
     {
         public VelocityException(String exceptionMessage)
@@ -39,9 +39,11 @@ namespace NVelocity.Exception
         {
         }
 
+        /*
         protected VelocityException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+        */
     }
 }

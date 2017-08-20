@@ -14,18 +14,19 @@
 
 namespace Commons.Collections
 {
-	using System;
-	using System.Collections;
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
 
     /// <summary>
     /// 
     /// </summary>
-	public class KeyedListEnumerator : IDictionaryEnumerator
+    public class KeyedListEnumerator : IDictionaryEnumerator
 	{
 		private int index = -1;
-		private ArrayList objs;
+		private List<object> objs;
 
-		internal KeyedListEnumerator(ArrayList list)
+		internal KeyedListEnumerator(List<object> list)
 		{
 			objs = list;
 		}

@@ -36,7 +36,7 @@ namespace NVelocity.Runtime.Directive
     /// </author>
     /// <version>  $Id: MacroParseException.java 736127 2009-01-20 21:59:00Z byron $
     /// </version>
-    [Serializable]
+    //[Serializable]
     public class MacroParseException : ParseException, IExtendedParseException
     {
         /// <summary> returns the Template name where this exception occured.</summary>

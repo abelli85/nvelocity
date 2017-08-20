@@ -377,7 +377,7 @@ namespace NVelocity.Runtime.Parser
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -387,7 +387,7 @@ namespace NVelocity.Runtime.Parser
                     jjtree.closeNodeScope(jjtn000, true);
                 }
             }
-            throw new System.ApplicationException("Missing return statement in function");
+            throw new System.Exception("Missing return statement in function");
         }
 
         /// <summary> These are the types of statements that
@@ -834,7 +834,7 @@ label_2_brk: ;
                     break;
 
             }
-            throw new System.ApplicationException("Missing return statement in function");
+            throw new System.Exception("Missing return statement in function");
         }
 
         /// <summary>   Supports the Pluggable Directives
@@ -1160,7 +1160,7 @@ label_4_brk: ;
                     }
                     {
                         if (true)
-                            throw (System.ApplicationException)jjte001;
+                            throw (System.Exception)jjte001;
                     }
                 }
                 finally
@@ -1223,7 +1223,7 @@ label_4_brk: ;
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -1233,7 +1233,7 @@ label_4_brk: ;
                     jjtree.closeNodeScope(jjtn000, true);
                 }
             }
-            throw new System.ApplicationException("Missing return statement in function");
+            throw new System.Exception("Missing return statement in function");
         }
 
         /// <summary> for creating a map in a #set
@@ -1341,7 +1341,7 @@ label_5_brk: ;
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -1436,7 +1436,7 @@ break;
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -1580,7 +1580,7 @@ break;
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -1771,7 +1771,7 @@ break;
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -1913,7 +1913,7 @@ throw new ParseException();
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -2139,7 +2139,7 @@ label_10_brk: ;
                     }
                     {
                         if (true)
-                            throw (System.ApplicationException)jjte001;
+                            throw (System.Exception)jjte001;
                     }
                 }
                 finally
@@ -2225,7 +2225,7 @@ break;
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -2321,7 +2321,7 @@ label_12_brk: ;
                     }
                     {
                         if (true)
-                            throw (System.ApplicationException)jjte001;
+                            throw (System.Exception)jjte001;
                     }
                 }
                 finally
@@ -2360,7 +2360,7 @@ label_12_brk: ;
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -2472,7 +2472,7 @@ label_13_brk: ;
                     }
                     {
                         if (true)
-                            throw (System.ApplicationException)jjte001;
+                            throw (System.Exception)jjte001;
                     }
                 }
                 finally
@@ -2511,7 +2511,7 @@ label_13_brk: ;
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -2613,7 +2613,7 @@ label_13_brk: ;
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -2693,7 +2693,7 @@ label_13_brk: ;
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -2745,7 +2745,7 @@ label_13_brk: ;
                 }
                 {
                     if (true)
-                        throw (System.ApplicationException)jjte000;
+                        throw (System.Exception)jjte000;
                 }
             }
             finally
@@ -2811,7 +2811,7 @@ label_13_brk: ;
                     }
                     {
                         if (true)
-                            throw (System.ApplicationException)jjte001;
+                            throw (System.Exception)jjte001;
                     }
                 }
                 finally
@@ -2882,7 +2882,7 @@ label_14_brk: ;
                     }
                     {
                         if (true)
-                            throw (System.ApplicationException)jjte001;
+                            throw (System.Exception)jjte001;
                     }
                 }
                 finally
@@ -2958,7 +2958,7 @@ label_15_brk: ;
                             }
                             {
                                 if (true)
-                                    throw (System.ApplicationException)jjte001;
+                                    throw (System.Exception)jjte001;
                             }
                         }
                         finally
@@ -3007,7 +3007,7 @@ label_15_brk: ;
                             }
                             {
                                 if (true)
-                                    throw (System.ApplicationException)jjte002;
+                                    throw (System.Exception)jjte002;
                             }
                         }
                         finally
@@ -3093,7 +3093,7 @@ label_16_brk: ;
                             }
                             {
                                 if (true)
-                                    throw (System.ApplicationException)jjte001;
+                                    throw (System.Exception)jjte001;
                             }
                         }
                         finally
@@ -3142,7 +3142,7 @@ label_16_brk: ;
                             }
                             {
                                 if (true)
-                                    throw (System.ApplicationException)jjte002;
+                                    throw (System.Exception)jjte002;
                             }
                         }
                         finally
@@ -3191,7 +3191,7 @@ label_16_brk: ;
                             }
                             {
                                 if (true)
-                                    throw (System.ApplicationException)jjte003;
+                                    throw (System.Exception)jjte003;
                             }
                         }
                         finally
@@ -3240,7 +3240,7 @@ label_16_brk: ;
                             }
                             {
                                 if (true)
-                                    throw (System.ApplicationException)jjte004;
+                                    throw (System.Exception)jjte004;
                             }
                         }
                         finally
@@ -3324,7 +3324,7 @@ label_17_brk: ;
                             }
                             {
                                 if (true)
-                                    throw (System.ApplicationException)jjte001;
+                                    throw (System.Exception)jjte001;
                             }
                         }
                         finally
@@ -3373,7 +3373,7 @@ label_17_brk: ;
                             }
                             {
                                 if (true)
-                                    throw (System.ApplicationException)jjte002;
+                                    throw (System.Exception)jjte002;
                             }
                         }
                         finally
@@ -3458,7 +3458,7 @@ label_18_brk: ;
                             }
                             {
                                 if (true)
-                                    throw (System.ApplicationException)jjte001;
+                                    throw (System.Exception)jjte001;
                             }
                         }
                         finally
@@ -3507,7 +3507,7 @@ label_18_brk: ;
                             }
                             {
                                 if (true)
-                                    throw (System.ApplicationException)jjte002;
+                                    throw (System.Exception)jjte002;
                             }
                         }
                         finally
@@ -3556,7 +3556,7 @@ label_18_brk: ;
                             }
                             {
                                 if (true)
-                                    throw (System.ApplicationException)jjte003;
+                                    throw (System.Exception)jjte003;
                             }
                         }
                         finally
@@ -3634,7 +3634,7 @@ label_19_brk: ;
                     }
                     {
                         if (true)
-                            throw (System.ApplicationException)jjte001;
+                            throw (System.Exception)jjte001;
                     }
                 }
                 finally
@@ -4975,8 +4975,8 @@ label_19_brk: ;
             throw generateParseException();
         }
 
-        [Serializable]
-        private sealed class LookaheadSuccess : System.ApplicationException
+        //[Serializable]
+        private sealed class LookaheadSuccess : System.Exception
         {
         }
         //UPGRADE_NOTE: Final 已从“jj_ls ”的声明中移除。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1003'"
@@ -5038,7 +5038,7 @@ label_19_brk: ;
                 return (jj_ntk_Renamed_Field = jj_nt.Kind);
         }
 
-        private ArrayList jj_expentries = new ArrayList(10);
+        private List<object> jj_expentries = new List<object>(10);
         private int[] jj_expentry;
         private int jj_kind = -1;
         private int[] jj_lasttokens = new int[100];

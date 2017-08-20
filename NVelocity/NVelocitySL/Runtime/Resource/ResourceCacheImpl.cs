@@ -22,6 +22,7 @@ namespace NVelocity.Runtime.Resource
     using System.Collections;
 
     using Commons.Collections;
+    using System.Collections.Generic;
 
     /// <summary> Default implementation of the resource cache for the default
     /// ResourceManager.  The cache uses a <i>least recently used</i> (LRU)
@@ -47,7 +48,8 @@ namespace NVelocity.Runtime.Resource
         }
         private void InitBlock()
         {
-            cache = Hashtable.Synchronized(new Hashtable(512, 0.5f));
+            // cache = Hashtable.Synchronized(new Hashtable(512, 0.5f));
+            cache = new Dictionary<object,object>(512);
         }
         /// <summary> Cache storage, assumed to be thread-safe.</summary>
         protected internal System.Collections.IDictionary cache;

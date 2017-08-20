@@ -187,7 +187,7 @@ namespace NVelocity.Context
 
         /// <summary>  cache for node/context specific introspection information</summary>
         //UPGRADE_TODO: Class“java.util.HashMap”被转换为具有不同行为的 'System.Collections.Hashtable'。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javautilHashMap'"
-        private HybridDictionary introspectionCache = new HybridDictionary(33);
+        private Dictionary<object,object> introspectionCache = new Dictionary<object, object>(33);
 
         /// <summary>  Template name stack. The stack top contains the current template name.</summary>
         private System.Collections.Generic.Stack<string> templateNameStack = new Stack<string>();
@@ -254,7 +254,7 @@ namespace NVelocity.Context
         public virtual IntrospectionCacheData ICacheGet(object key)
         {
             //UPGRADE_TODO: 方法“java.util.HashMap.Get”被转换为具有不同行为的 'System.Collections.Hashtable.Item'。 "ms-help://MS.VSCC.v80/dv_commoner/local/redirect.htm?index='!DefaultContextWindowIndex'&keyword='jlca1073_javautilHashMapget_javalangObject'"
-            return (IntrospectionCacheData)introspectionCache[key];
+            return introspectionCache.ContainsKey(key) ? (IntrospectionCacheData)introspectionCache[key] : null;
         }
 
         /// <seealso cref="IntrospectionCacheData)">

@@ -143,8 +143,9 @@ namespace NVelocity.Runtime
         public const string INPUT_ENCODING = "input.encoding";
         /// <summary>Encoding for the output stream. Currently used by Anakia and VelocityServlet </summary>
         public const string OUTPUT_ENCODING = "output.encoding";
-        /// <summary>Default Encoding is ISO-8859-1. </summary>
-        public const string ENCODING_DEFAULT = "ISO-8859-1";
+        /// <summary>Default Encoding is UTF-8. </summary>
+        //public const string ENCODING_DEFAULT = "ISO-8859-1";
+        public const string ENCODING_DEFAULT = "UTF-8";
         /// <summary>key name for uberspector. Multiple classnames can be specified,in which case uberspectors will be chained. </summary>
         public const string UBERSPECT_CLASSNAME = "runtime.introspector.uberspect";
         /// <summary>A comma separated list of packages to restrict access to in the SecureIntrospector. </summary>
@@ -161,9 +162,9 @@ namespace NVelocity.Runtime
         /// </seealso>
         public const string PARSER_POOL_SIZE = "parser.pool.size";
         /// <summary>Default Runtime properties. </summary>
-        public const string DEFAULT_RUNTIME_PROPERTIES = "NVelocity.Runtime.Defaults.nvelocity.properties";
+        public const string DEFAULT_RUNTIME_PROPERTIES = "NVelocitySL.Runtime.Defaults.nvelocity.properties";
         /// <summary>Default Runtime properties. </summary>
-        public const string DEFAULT_RUNTIME_DIRECTIVES = "NVelocity.Runtime.Defaults.directive.properties";
+        public const string DEFAULT_RUNTIME_DIRECTIVES = "NVelocitySL.Runtime.Defaults.directive.properties";
         /// <summary> The default number of parser instances to create. Configurable via the parameter named by the {@link #PARSER_POOL_SIZE}
         /// constant.
         /// </summary>

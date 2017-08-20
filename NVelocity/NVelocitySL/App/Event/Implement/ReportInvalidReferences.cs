@@ -59,7 +59,7 @@ namespace NVelocity.App.Event.Implement
         public const string EVENTHANDLER_INVALIDREFERENCE_EXCEPTION = "eventhandler.invalidreference.exception";
 
         /// <summary> List of InvalidReferenceInfo objects</summary>
-        internal System.Collections.IList invalidReferences = new System.Collections.ArrayList();
+        internal System.Collections.IList invalidReferences = new List<object>();
 
         /// <summary> If true, stop at the first invalid reference and throw an exception.</summary>
         private bool stopOnFirstInvalidReference = false;

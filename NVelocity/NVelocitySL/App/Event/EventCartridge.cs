@@ -24,6 +24,7 @@ namespace NVelocity.App.Event
     using Context;
     using Runtime;
     using Util;
+    using System.Collections.Generic;
 
     /// <summary> Stores the event handlers. Event handlers can be assigned on a per
     /// VelocityEngine instance basis by specifying the class names in the
@@ -124,11 +125,11 @@ namespace NVelocity.App.Event
             }
 
         }
-        private System.Collections.IList referenceHandlers = new System.Collections.ArrayList();
-        private System.Collections.IList nullSetHandlers = new System.Collections.ArrayList();
-        private System.Collections.IList methodExceptionHandlers = new System.Collections.ArrayList();
-        private System.Collections.IList includeHandlers = new System.Collections.ArrayList();
-        private System.Collections.IList invalidReferenceHandlers = new System.Collections.ArrayList();
+        private System.Collections.IList referenceHandlers = new List<object>();
+        private System.Collections.IList nullSetHandlers = new List<object>();
+        private System.Collections.IList methodExceptionHandlers = new List<object>();
+        private System.Collections.IList includeHandlers = new List<object>();
+        private System.Collections.IList invalidReferenceHandlers = new List<object>();
 
         /// <summary> Ensure that handlers are not initialized more than once.</summary>
 

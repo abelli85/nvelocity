@@ -22,6 +22,7 @@ namespace NVelocity.Runtime.Log
     using System;
 
     using Exception;
+    using System.Collections.Generic;
 
     /// <summary> <p>
     /// This class is responsible for instantiating the correct ILogChute
@@ -104,7 +105,7 @@ namespace NVelocity.Runtime.Log
             * ServletLogChute, and the JdkLogChute for
             * convenience - so we use whichever we works first.
             */
-            System.Collections.IList classes = new System.Collections.ArrayList();
+            System.Collections.IList classes = new List<object>();
             System.Object obj = rsvc.GetProperty(RuntimeConstants.RUNTIME_LOG_LOGSYSTEM_CLASS);
 
             /*
@@ -153,7 +154,8 @@ namespace NVelocity.Runtime.Log
                             throw new VelocityException(msg);
                         }
                     }
-                    catch (System.ApplicationException ncdfe)
+                    /*
+                    catch (System.Exception ncdfe)
                     {
                         // note these errors for anyone debugging the app
                         if (IsProbablyProvidedLogChute(claz))
@@ -165,6 +167,7 @@ namespace NVelocity.Runtime.Log
                             log.Debug("Couldn't find class " + claz + " or necessary supporting classes in classpath.", ncdfe);
                         }
                     }
+                    */
                     catch (System.Exception e)
                     {
                         System.String msg = "Failed to initialize an instance of " + claz + " with the current runtime configuration.";

@@ -20,6 +20,7 @@
 namespace NVelocity.Runtime.Parser.Node
 {
     using Context;
+    using System.Collections.Generic;
 
     /// <summary> </summary>
     public class ASTObjectArray : SimpleNode
@@ -55,7 +56,7 @@ namespace NVelocity.Runtime.Parser.Node
             int size = GetNumChildren();
 
             // since we know the amount of elements, Initialize arraylist with proper size
-            System.Collections.IList objectArray = new System.Collections.ArrayList(size);
+            System.Collections.IList objectArray = new List<object>(size);
 
             for (int i = 0; i < size; i++)
             {
