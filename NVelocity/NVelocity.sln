@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVelocity", "NVelocity\NVel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVelocity.Tests", "NVelocity.Tests\NVelocity.Tests.csproj", "{B7709ECC-BD3B-45FF-82D1-AE52CF73BA21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVelocitySL", "NVelocitySL\NVelocitySL.csproj", "{607FABB7-41AB-4551-A80B-FABC514162EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B7709ECC-BD3B-45FF-82D1-AE52CF73BA21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7709ECC-BD3B-45FF-82D1-AE52CF73BA21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7709ECC-BD3B-45FF-82D1-AE52CF73BA21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{607FABB7-41AB-4551-A80B-FABC514162EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{607FABB7-41AB-4551-A80B-FABC514162EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{607FABB7-41AB-4551-A80B-FABC514162EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{607FABB7-41AB-4551-A80B-FABC514162EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
