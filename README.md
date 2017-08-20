@@ -1,5 +1,5 @@
 # nvelocity
-The template engine NVelocitySL supports silverlight based on NVelocity from http://nvelocity.codeplex.com/.
+The template engine NVelocitySL supports silverlight based on NVelocity from http://nvelocity.codeplex.com/ and velocity from apache.
 
 
             var ctx = new VelocityContext();
