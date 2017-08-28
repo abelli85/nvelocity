@@ -125,8 +125,9 @@ namespace NVelocity.Runtime
         /// <li>Velocimacro System</li>
         /// </ul>
         /// </summary>
+        /// <param name="initDefault">Loads default properties if true; does not load otherwise.</param>
         /// <throws>  Exception </throws>
-        void Init();
+        void Init(bool initDefault = true);
 
         /// <summary> Allows an external system to set a property in
         /// the Velocity Runtime.
@@ -185,9 +186,10 @@ namespace NVelocity.Runtime
         /// </summary>
         /// <param name="p">
         /// </param>
+        /// <param name="initDefault">Loads default properties if true; does not load otherwise.</param>
         /// <throws>  Exception </throws>
     
-        void Init(ExtendedProperties p);
+        void Init(ExtendedProperties p, bool initDefault = true);
 
         /// <summary> Initialize the Velocity Runtime with the name of
         /// ExtendedProperties object.
@@ -195,8 +197,9 @@ namespace NVelocity.Runtime
         /// </summary>
         /// <param name="configurationFile">
         /// </param>
+        /// <param name="initDefault">Loads default properties if true; does not load otherwise.</param>
         /// <throws>  Exception </throws>
-        void Init(string configurationFile);
+        void Init(string configurationFile, bool initDefault = true);
 
         /// <summary> Wraps the String in a StringReader and passes it off to
         /// {@link #parse(Reader,String)}.

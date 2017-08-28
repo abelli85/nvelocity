@@ -508,7 +508,7 @@ namespace Commons.Collections
         /// </summary>
         private void AddStringProperty(String key, String token)
         {
-            Object o = this[key];
+            Object o = this.ContainsKey(key) ? this[key] : null;
 
             /*
         *  $$$ GMJ
@@ -1004,7 +1004,7 @@ namespace Commons.Collections
         /// </exception>
         public List<object> GetVector(String key, List<object> defaultValue)
         {
-            Object value = this[key];
+            Object value = this.ContainsKey(key) ? this[key] : null;
 
             if (value is List<object>)
             {

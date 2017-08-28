@@ -163,8 +163,10 @@ namespace NVelocity.Runtime
         public const string PARSER_POOL_SIZE = "parser.pool.size";
         /// <summary>Default Runtime properties. </summary>
         public const string DEFAULT_RUNTIME_PROPERTIES = "NVelocitySL.Runtime.Defaults.nvelocity.properties";
+        public const string DEFAULT_RUNTIME_PROPERTIES2 = "nvelocity.properties";
         /// <summary>Default Runtime properties. </summary>
         public const string DEFAULT_RUNTIME_DIRECTIVES = "NVelocitySL.Runtime.Defaults.directive.properties";
+        public const string DEFAULT_RUNTIME_DIRECTIVES2 = "directive.properties";
         /// <summary> The default number of parser instances to create. Configurable via the parameter named by the {@link #PARSER_POOL_SIZE}
         /// constant.
         /// </summary>

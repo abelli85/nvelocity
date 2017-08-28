@@ -29,6 +29,7 @@ namespace NVelocity.Runtime.Resource
     using Loader;
     using Exception;
     using NVelocity.Util;
+    using System.Security;
 
     /// <summary> Class to manage the text resource for the Velocity Runtime.
     /// 
@@ -456,8 +457,17 @@ namespace NVelocity.Runtime.Resource
                         break;
                     }
                 }
-                catch (ResourceNotFoundException)
+                catch (ResourceNotFoundException ex)
                 {
+                    log.Info(string.Format("Loading {0} with {1} caused by {2}", resource, resourceLoader, ex));
+                    /*
+                    *  that's ok - it's possible to fail in
+                    *  multi-loader environment
+                    */
+                }
+                catch (SecurityException ex)
+                {
+                    log.Info(string.Format("Loading {0} with {1} caused by {2}", resource, resourceLoader, ex));
                     /*
                     *  that's ok - it's possible to fail in
                     *  multi-loader environment

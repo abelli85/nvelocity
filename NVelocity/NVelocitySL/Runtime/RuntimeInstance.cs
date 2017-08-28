@@ -333,7 +333,7 @@ namespace NVelocity.Runtime
         /// </summary>
         /// <throws>  Exception When an Error occured during initialization. </throws>
 
-        public virtual void Init()
+        public virtual void Init(bool initDefault = true)
         {
             lock (syncObj)
             {
@@ -345,7 +345,7 @@ namespace NVelocity.Runtime
                     log.Debug("Starting Apache Velocity v@build.version@ (compiled: @build.time@)");
                     log.Trace("RuntimeInstance initializing.");
 
-                    InitializeProperties();
+                    InitializeProperties(initDefault);
                     InitializeLog();
                     InitializeResourceManager();
                     InitializeDirectives();
@@ -470,14 +470,27 @@ namespace NVelocity.Runtime
         {
             try
             {
+                var assembly = GetType().Assembly;
+                var flist = assembly.GetManifestResourceNames();
+                log.Debug(string.Format("Manifest resource names({0}):{1}", flist.Length, string.Join(", ", flist)));
 
-                using (Stream inputStream = GetType().Assembly.GetManifestResourceStream(RuntimeConstants.DEFAULT_RUNTIME_PROPERTIES))
+                var fname = "NVelocitySL";
+                foreach (var f1 in flist)
+                {
+                    if (f1.Contains(RuntimeConstants.DEFAULT_RUNTIME_PROPERTIES2))
+                    {
+                        fname = f1;
+                    }
+                }
+                log.Debug("found manifest:" + fname);
+
+                using (Stream inputStream = assembly.GetManifestResourceStream(fname))
                 {
                     configuration.Load(inputStream);
 
                     if (log.DebugEnabled)
                     {
-                        log.Debug("Default Properties File: " + new FileInfo(RuntimeConstants.DEFAULT_RUNTIME_PROPERTIES).FullName);
+                        log.Debug("Default Properties File: " + new FileInfo(fname).FullName);
                     }
                 }
             }
@@ -596,13 +609,13 @@ namespace NVelocity.Runtime
         /// gives a much greater chance of having a
         /// working system.
         /// </summary>
-        private void InitializeProperties()
+        private void InitializeProperties(bool initDefault = true)
         {
             /*
             * Always lay down the default properties first as
             * to provide a solid base.
             */
-            if (configuration.isInitialized == false)
+            if (initDefault && configuration.isInitialized == false)
             {
                 SetDefaultProperties();
             }
@@ -620,10 +633,10 @@ namespace NVelocity.Runtime
         /// <param name="p">
         /// </param>
         /// <throws>  Exception When an Error occurs during initialization. </throws>
-        public void Init(ExtendedProperties p)
+        public void Init(ExtendedProperties p, bool initDefault = true)
         {
             Properties = ExtendedProperties.ConvertProperties(p);
-            Init();
+            Init(initDefault);
         }
 
         /// <summary> Initialize the Velocity Runtime with the name of
@@ -633,10 +646,10 @@ namespace NVelocity.Runtime
         /// <param name="configurationFile">
         /// </param>
         /// <throws>  Exception When an Error occurs during initialization. </throws>
-        public void Init(string configurationFile)
+        public void Init(string configurationFile, bool initDefault = true)
         {
             Properties = new ExtendedProperties(configurationFile);
-            Init();
+            Init(initDefault);
         }
 
         private void InitializeResourceManager()
@@ -1171,7 +1184,7 @@ namespace NVelocity.Runtime
         /// </summary>
         /// <since> Velocity 1.6
         /// </since>
-        public bool Evaluate(IContext context,TextWriter writer, string logTag, TextReader reader)
+        public bool Evaluate(IContext context, TextWriter writer, string logTag, TextReader reader)
         {
             if (logTag == null)
             {

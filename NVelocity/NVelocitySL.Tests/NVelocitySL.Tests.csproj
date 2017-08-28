@@ -69,6 +69,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Defaults\directive.properties">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Defaults\nvelocity.properties">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <EmbeddedResource Include="Report\walk_list.vm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

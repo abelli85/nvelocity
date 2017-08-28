@@ -93,12 +93,13 @@ namespace NVelocity.App
         /// </summary>
         /// <param name="propsFilename">name of properties file to Init with
         /// </param>
+        /// <param name="initDefault">Loads default properties if true; does not load otherwise.</param>
         /// <throws>  Exception </throws>
         /// <since> 1.5
         /// </since>
-        public VelocityEngine(string propsFilename)
+        public VelocityEngine(string propsFilename, bool initDefault = true)
         {
-            ri.Init(propsFilename);
+            ri.Init(propsFilename, initDefault);
         }
 
         /// <summary>  CTOR that invokes an Init(String), initializing
@@ -107,22 +108,24 @@ namespace NVelocity.App
         /// </summary>
         /// <param name="p">name of properties  to Init with
         /// </param>
+        /// <param name="initDefault">Loads default properties if true; does not load otherwise.</param>
         /// <throws>  Exception </throws>
         /// <since> 1.5
         /// </since>
 
-        public VelocityEngine(ExtendedProperties p)
+        public VelocityEngine(ExtendedProperties p, bool initDefault = true)
         {
-            ri.Init(p);
+            ri.Init(p, initDefault);
         }
 
         /// <summary>  Initialize the Velocity runtime engine, using the default
         /// properties of the Velocity distribution
         /// </summary>
+        /// <param name="initDefault">Loads default properties if true; does not load otherwise.</param>
         /// <throws>  Exception </throws>
-        public virtual void Init()
+        public virtual void Init(bool initDefault = true)
         {
-            ri.Init();
+            ri.Init(initDefault);
         }
 
         /// <summary>  Initialize the Velocity runtime engine, using default properties
@@ -132,10 +135,11 @@ namespace NVelocity.App
         /// <param name="propsFilename">file containing properties to use to Initialize
         /// the Velocity runtime
         /// </param>
+        /// <param name="initDefault">Loads default properties if true; does not load otherwise.</param>
         /// <throws>  Exception </throws>
-        public virtual void Init(string propsFilename)
+        public virtual void Init(string propsFilename, bool initDefault = true)
         {
-            ri.Init(propsFilename);
+            ri.Init(propsFilename, initDefault);
         }
 
         /// <summary>  Initialize the Velocity runtime engine, using default properties
@@ -144,13 +148,14 @@ namespace NVelocity.App
         /// </summary>
         /// <param name="p"> Proprties object containing initialization properties
         /// </param>
+        /// <param name="initDefault">Loads default properties if true; does not load otherwise.</param>
         /// <throws>  Exception </throws>
         /// <summary> 
         /// </summary>
 
-        public virtual void Init(ExtendedProperties p)
+        public virtual void Init(ExtendedProperties p, bool initDefault = true)
         {
-            ri.Init(p);
+            ri.Init(p, initDefault);
         }
 
         /// <summary> Set a Velocity Runtime property.
