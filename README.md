@@ -9,6 +9,7 @@ NVelocitySL is expected to be used in silverlight to fill Excel spreadsheet 2003
 
 Whatever, Excel spreadsheet 2003 XML format is a sensitive specification. It's recommended to compose and fill the template carefully. 
 
+````C#
 
         /// <summary>
         /// This usage is recommended because in silverlight, loading
@@ -45,6 +46,8 @@ Whatever, Excel spreadsheet 2003 XML format is a sensitive specification. It's r
 
 The default nvelocity.properties can be put under your project and loading at runtime.
 	
+````properties
+
 	# Licensed to the Apache Software Foundation (ASF) under one
 	# or more contributor license agreements.  See the NOTICE file
 	# distributed with this work for additional information
