@@ -1,7 +1,41 @@
-# nvelocity
+# nvelocity #
 The template engine NVelocitySL supports silverlight based on NVelocity from http://nvelocity.codeplex.com/ and velocity from apache.
+### Please note that the usage in silverlight is some different. Some work must be done before merging the template: ###
 
-NVelocitySL is expected to be used in silverlight to fill Excel spreadsheet 2003 XML files. The following mistakes are made mostly:
+1. the default nvelocity.properties is recommended to be resource of your silverlight package .xap file. And it's then loaded via:
+
+```C#
+
+    var streamProps = Application.GetResourceStream(new Uri(VM_PROPS, UriKind.Relative)).Stream;
+    var extProps = new ExtendedProperties();
+    extProps.Load(streamProps, Encoding.UTF8.WebName);
+    var ve = new VelocityEngine();
+    ve.Init(extProps, false);
+```    
+
+2. the template is also recommended to be resource of your
+ silverlight package .xap file. And it's loaded via:
+
+```C#
+
+    var res = Application.GetResourceStream(new Uri(VM_LOSS_SUM_LIST, UriKind.Relative));
+    var sr = new StreamReader(res.Stream, Encoding.UTF8);
+    var body = sr.ReadToEnd();
+    StringResourceLoader.GetRepository().PutStringResource("lossVm", body);
+```   
+ 
+3. the template is then retrieved in repository which is put in step 2. 
+Please note that the output stream is open via SaveFileDialog:
+
+```C#
+
+    var temp = ve.GetTemplate("lossVm");
+    var sw = new StreamWriter(dlg.OpenFile());
+    temp.Merge(ctx, sw);
+    sw.Close();
+```      
+
+### NVelocitySL is expected to be used in silverlight to fill Excel spreadsheet 2003 XML files. The following mistakes are made mostly: ###
 
 1. incorrect data format, e.g. DateTime is usually to be mistaken. It is recommended to use 'String' instead of 'DateTime'.
 2. incorrect NumberFormat string. '#' should be removed to avoid NVelocity parsing.
@@ -48,7 +82,11 @@ Whatever, Excel spreadsheet 2003 XML format is a sensitive specification. It's r
 ```
 
 
-The default nvelocity.properties can be put under your project and loading at runtime.
+### The default nvelocity.properties can be put under your project and loading at runtime. ###
+It's almost same as the file 'nvelocity.properties' in NVelocity/Runtime/Defaults/nvelocity.properties, 
+besides 'input.encoding' & 'output.encoding' are changed to 'UTF-8', this change works in any country then;
+and 'resource.loader' is appended with 'string', which make string-template can be loaded via resource in
+silverlight.
 
 
 ```INI
