@@ -46,7 +46,7 @@ Whatever, Excel spreadsheet 2003 XML format is a sensitive specification. It's r
 
 The default nvelocity.properties can be put under your project and loading at runtime.
 	
-````properties
+````bash
 
 	# Licensed to the Apache Software Foundation (ASF) under one
 	# or more contributor license agreements.  See the NOTICE file
